@@ -30,7 +30,7 @@ public class BorrowUC_CTL implements ICardReaderListener,
 	private IScanner scanner; 
 	private IPrinter printer; 
 	private IDisplay display;
-	//private String state;
+	private String state;
 	private int scanCount = 0;
 	private IBorrowUI ui;
 	private EBorrowState state; 
