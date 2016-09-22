@@ -60,6 +60,7 @@ public class CardReader extends JFrame implements ICardReader {
 		
 		btnReadCard = new JButton("Swipe Card");
 		btnReadCard.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
 				if (listener == null) {
 					throw new RuntimeException("CardReader: listener is null");
