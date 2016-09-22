@@ -33,8 +33,8 @@ public class BorrowUC_UI extends JPanel implements IBorrowUI {
 		addPanel(new ScanningPanel(listener),    EBorrowState.SCANNING_BOOKS);
 		addPanel(new RestrictedPanel(listener),  EBorrowState.BORROWING_RESTRICTED);
 		addPanel(new ConfirmLoanPanel(listener), EBorrowState.CONFIRMING_LOANS);
-		//addPanel(new CancelledPanel(),           EBorrowState.CANCELLED);
-		//addPanel(new CompletedPanel(),           EBorrowState.COMPLETED);
+		addPanel(new CancelledPanel(),           EBorrowState.CANCELLED);
+		addPanel(new CompletedPanel(),           EBorrowState.COMPLETED);
 	}
 	
 	private void addPanel(ABorrowPanel panel, EBorrowState state) {
