@@ -43,7 +43,7 @@ public class Main implements IMainListener {
 		printer.setVisible(true);
 		display.setVisible(true);
 	}
-
+//setupTestData();
 	
 	@Override
 	public void borrowBooks() {
