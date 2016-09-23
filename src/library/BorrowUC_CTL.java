@@ -21,7 +21,7 @@ import library.interfaces.hardware.IDisplay;
 import library.interfaces.hardware.IPrinter;
 import library.interfaces.hardware.IScanner;
 import library.interfaces.hardware.IScannerListener;
-
+//testing
 public class BorrowUC_CTL implements ICardReaderListener, 
 									 IScannerListener, 
 									 IBorrowUIListener {
