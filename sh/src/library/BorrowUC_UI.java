@@ -44,10 +44,12 @@ public class BorrowUC_UI extends JPanel implements IBorrowUI {
 
 
 	@Override
-	public void setState(EBorrowState state) {
+	public void setState(EBorrowState state) 
+	{
 		CardLayout cl = (CardLayout) (this.getLayout());
 
-		switch (state) {
+		switch (state) 
+		{
 		case INITIALIZED:
 			cl.show(this, state.toString());
 			break;
