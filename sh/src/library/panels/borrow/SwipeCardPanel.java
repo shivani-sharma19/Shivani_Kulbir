@@ -14,7 +14,8 @@ import javax.swing.UIManager;
 import java.awt.Color;
 
 
-public class SwipeCardPanel extends ABorrowPanel {
+public class SwipeCardPanel extends ABorrowPanel 
+{
 
 	private static final long serialVersionUID = 1L;
 	private JLabel lblErrMesg;
@@ -39,7 +40,8 @@ public class SwipeCardPanel extends ABorrowPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				listener.cancelled();
 			}
-		});
+		}
+		);
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnCancel.setBounds(170, 320, 127, 35);
 		add(btnCancel);
@@ -51,7 +53,7 @@ public class SwipeCardPanel extends ABorrowPanel {
 		this.add(lblErrMesg);
 
 	}
-
+//Override
 	@Override
 	public void displayErrorMessage(String errorMesg) {
 		lblErrMesg.setText(errorMesg);		
