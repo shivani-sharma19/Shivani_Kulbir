@@ -26,7 +26,8 @@ public class Scanner extends JFrame implements IScanner {
 	private JButton btnScan;
 	private IScannerListener listener;
 
-	public Scanner() {
+	public Scanner() 
+	{
 		setTitle("Scanner");
         setBounds(50, 250, 400, 200);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,9 +50,11 @@ public class Scanner extends JFrame implements IScanner {
 		panel.add(lblNewLabel);
 		
 		textField = new JTextField();
-		textField.addKeyListener(new KeyAdapter() {
+		textField.addKeyListener(new KeyAdapter()
+		{
 			@Override
-			public void keyPressed(KeyEvent arg0) {
+			public void keyPressed(KeyEvent arg0) 
+			{
 				lblErrorMesg.setText("");
 			}
 		});
@@ -64,7 +67,8 @@ public class Scanner extends JFrame implements IScanner {
 		btnScan.setEnabled(false);
 		btnScan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (listener == null) {
+				if (listener == null) 
+				{
 					throw new RuntimeException("Scanner: listener is null");
 				}
 				String text = textField.getText();
