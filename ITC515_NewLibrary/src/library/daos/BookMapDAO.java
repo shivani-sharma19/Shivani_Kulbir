@@ -17,22 +17,22 @@ public class BookMapDAO implements IBookDAO {
 	private IBookHelper helper;
 
 	public BookMapDAO(IBookHelper helper) {
-		if (helper == null ) {
+		if (helper == null) {
 			throw new IllegalArgumentException(String.format("BookDAO : constructor : helper cannot be null."));
 		}
 		nextId = 1;
-		this.helper = helper; 
+		this.helper = helper;
 		bookMap = new HashMap<Integer, IBook>();
 	}
-	
+
 	public BookMapDAO(IBookHelper helper, Map<Integer, IBook> bookMap) {
 		this(helper);
-		if (helper == null ) {
+		if (helper == null) {
 			throw new IllegalArgumentException(String.format("BookDAO : constructor : bookMap cannot be null."));
 		}
 		this.bookMap = bookMap;
 	}
-	
+
 	@Override
 	public IBook addBook(String author, String title, String callNo) {
 		int id = getNextId();
@@ -57,9 +57,9 @@ public class BookMapDAO implements IBookDAO {
 
 	@Override
 	public List<IBook> findBooksByAuthor(String author) {
-		if ( author == null || author.isEmpty()) {
+		if (author == null || author.isEmpty()) {
 			throw new IllegalArgumentException(
-				String.format("BookDAO : findBooksByAuthor : author cannot be null or blank"));
+					String.format("BookDAO : findBooksByAuthor : author cannot be null or blank"));
 		}
 		List<IBook> list = new ArrayList<IBook>();
 		for (IBook b : bookMap.values()) {
@@ -72,9 +72,9 @@ public class BookMapDAO implements IBookDAO {
 
 	@Override
 	public List<IBook> findBooksByTitle(String title) {
-		if ( title == null || title.isEmpty()) {
+		if (title == null || title.isEmpty()) {
 			throw new IllegalArgumentException(
-				String.format("BookDAO : findBooksByAuthor : author cannot be null or blank"));
+					String.format("BookDAO : findBooksByAuthor : author cannot be null or blank"));
 		}
 		List<IBook> list = new ArrayList<IBook>();
 		for (IBook b : bookMap.values()) {
@@ -87,9 +87,9 @@ public class BookMapDAO implements IBookDAO {
 
 	@Override
 	public List<IBook> findBooksByAuthorTitle(String author, String title) {
-		if ( title == null || title.isEmpty() ||  author == null || author.isEmpty()) {
+		if (title == null || title.isEmpty() || author == null || author.isEmpty()) {
 			throw new IllegalArgumentException(
-				String.format("BookDAO : findBooksByAuthor : author and title cannot be null or blank"));
+					String.format("BookDAO : findBooksByAuthor : author and title cannot be null or blank"));
 		}
 		List<IBook> list = new ArrayList<IBook>();
 		for (IBook b : bookMap.values()) {
@@ -99,7 +99,7 @@ public class BookMapDAO implements IBookDAO {
 		}
 		return Collections.unmodifiableList(list);
 	}
-	
+
 	private int getNextId() {
 		return nextId++;
 	}
