@@ -20,37 +20,24 @@ import java.util.Date;
  * @author sarvanjit
  *
  */
-public class GetStateTest {
-Loan instance;
-IBook book;
-IMember member;
-Date borrowDate,returnDate;
+public class GetStateTestLoan {
+	Loan instance;
+	IBook book;
+	IMember member;
+	Date borrowDate, returnDate;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
 	@Before
 	public void setUp() throws Exception {
-	book=new Book("Skk","jhh","hyyt",45);
-	member=new Member("james","Mack","12132","jjh",45);
-		borrowDate=new Date(2016,05,10);
-	returnDate=new Date(2016,05,10);
-		
-		instance=new Loan(book,member,borrowDate,returnDate);
+		book = new Book("Skk", "jhh", "hyyt", 45);
+		member = new Member("james", "Mack", "12132", "jjh", 45);
+		borrowDate = new Date(2016, 05, 10);
+		returnDate = new Date(2016, 05, 10);
+
+		instance = new Loan(book, member, borrowDate, returnDate);
 	}
 
 	/**
@@ -65,11 +52,10 @@ Date borrowDate,returnDate;
 	 */
 	@Test
 	public final void testGetState() {
-		ELoanState expResult=ELoanState.PENDING;
-		ELoanState result=instance.getState();
-		assertEquals(expResult,result);
-		
-		
+		ELoanState expResult = ELoanState.PENDING;
+		ELoanState result = instance.getState();
+		assertEquals(expResult, result);
+
 	}
 
 }
