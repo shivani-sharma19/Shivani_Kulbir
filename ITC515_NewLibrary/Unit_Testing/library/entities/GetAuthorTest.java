@@ -1,3 +1,5 @@
+package library.entities;
+
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -6,11 +8,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class GetAuthorTest {
+import library.entities.Book;
+import library.interfaces.entities.EBookState;
+import library.interfaces.entities.ILoan;
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
+public class GetAuthorTest {
+	Book instance;
+	 
+	
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
@@ -18,15 +23,17 @@ public class GetAuthorTest {
 
 	@Before
 	public void setUp() throws Exception {
+		instance =new Book("Author2","ITC515","565656",45);
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
+	
 
 	@Test
-	public final void test() {
-		fail("Not yet implemented"); // TODO
+	public final void testGetAuthor() {
+		String expResult="Author2";
+		String result=instance.getAuthor();
+		assertEquals(expResult,result);
+		
 	}
 
 }
