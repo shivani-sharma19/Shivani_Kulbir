@@ -11,8 +11,7 @@ import library.interfaces.entities.IMember;
 public class LoanHelper implements ILoanHelper {
 
 	@Override
-	public ILoan makeLoan(IBook book, IMember borrower, Date borrowDate,
-			Date dueDate) {
+	public ILoan makeLoan(IBook book, IMember borrower, Date borrowDate, Date dueDate) {
 
 		return new Loan(book, borrower, borrowDate, dueDate);
 	}

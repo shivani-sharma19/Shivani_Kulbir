@@ -6,17 +6,15 @@ import library.interfaces.entities.ILoan;
 
 public class Book implements IBook {
 
-	
 	private String author;
 	private String title;
 	private String callNumber;
 	private int id;
 	private ILoan loan;
 	private EBookState state;
-	
-	
+
 	public Book(String author, String title, String callNumber, int bookID) {
-		if ( !sane(author, title, callNumber, bookID)) {
+		if (!sane(author, title, callNumber, bookID)) {
 			throw new IllegalArgumentException("Member: constructor : bad parameters");
 		}
 		this.author = author;
@@ -27,16 +25,11 @@ public class Book implements IBook {
 		this.loan = null;
 	}
 
-
 	private boolean sane(String author, String title, String callNumber, int bookID) {
-		return  ( author != null     && !author.isEmpty()     &&
-				  title != null      && !title.isEmpty()      &&
-				  callNumber != null && !callNumber.isEmpty() &&
-				  bookID > 0 
-				);
+		return (author != null && !author.isEmpty() && title != null && !title.isEmpty() && callNumber != null
+				&& !callNumber.isEmpty() && bookID > 0);
 	}
 
-	
 	@Override
 	public void borrow(ILoan loan) {
 		if (loan == null) {
@@ -50,13 +43,11 @@ public class Book implements IBook {
 
 	}
 
-	
 	@Override
 	public ILoan getLoan() {
 		return loan;
 	}
 
-	
 	@Override
 	public void returnBook(boolean damaged) {
 		if (!(state == EBookState.ON_LOAN || state == EBookState.LOST)) {
@@ -65,13 +56,11 @@ public class Book implements IBook {
 		loan = null;
 		if (damaged) {
 			state = EBookState.DAMAGED;
-		}
-		else {
+		} else {
 			state = EBookState.AVAILABLE;
 		}
 	}
 
-	
 	@Override
 	public void lose() {
 		if (!(state == EBookState.ON_LOAN)) {
@@ -80,7 +69,6 @@ public class Book implements IBook {
 		state = EBookState.LOST;
 	}
 
-	
 	@Override
 	public void repair() {
 		if (!(state == EBookState.DAMAGED)) {
@@ -89,7 +77,6 @@ public class Book implements IBook {
 		state = EBookState.AVAILABLE;
 	}
 
-	
 	@Override
 	public void dispose() {
 		if (!(state == EBookState.AVAILABLE || state == EBookState.DAMAGED || state == EBookState.LOST)) {
@@ -98,41 +85,34 @@ public class Book implements IBook {
 		state = EBookState.DISPOSED;
 	}
 
-	
 	@Override
 	public EBookState getState() {
 		return state;
 	}
 
-	
 	@Override
 	public String getAuthor() {
 		return author;
 	}
 
-	
 	@Override
 	public String getTitle() {
 		return title;
 	}
 
-	
 	@Override
 	public String getCallNumber() {
 		return callNumber;
 	}
 
-	
 	@Override
 	public int getID() {
 		return id;
 	}
 
-	
 	@Override
 	public String toString() {
-		return String.format("Id: %d\nAuthor: %s\nTitle: %s\nCall Number %s",
-				id, author, title, callNumber);
+		return String.format("Id: %d\nAuthor: %s\nTitle: %s\nCall Number %s", id, author, title, callNumber);
 	}
 
 }
