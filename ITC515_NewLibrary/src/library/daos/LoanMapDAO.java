@@ -20,28 +20,24 @@ public class LoanMapDAO implements ILoanDAO {
 	private Map<Integer, ILoan> loanMap;
 	private ILoanHelper helper;
 	private Calendar cal;
-	
 
 	public LoanMapDAO(ILoanHelper helper) {
-		if (helper == null ) {
-			throw new IllegalArgumentException(
-				String.format("LoanMapDAO : constructor : helper cannot be null."));
+		if (helper == null) {
+			throw new IllegalArgumentException(String.format("LoanMapDAO : constructor : helper cannot be null."));
 		}
 		nextID = 0;
-		this.helper = helper; 
+		this.helper = helper;
 		loanMap = new HashMap<Integer, ILoan>();
 		cal = Calendar.getInstance();
 	}
 
-	public LoanMapDAO(ILoanHelper helper, Map<Integer,ILoan> loanMap) {
+	public LoanMapDAO(ILoanHelper helper, Map<Integer, ILoan> loanMap) {
 		this(helper);
-		if (loanMap == null ) {
-			throw new IllegalArgumentException(
-				String.format("LoanMapDAO : constructor : loanMap cannot be null."));
+		if (loanMap == null) {
+			throw new IllegalArgumentException(String.format("LoanMapDAO : constructor : loanMap cannot be null."));
 		}
 		this.loanMap = loanMap;
 	}
-
 
 	@Override
 	public ILoan getLoanByID(int id) {
@@ -53,9 +49,8 @@ public class LoanMapDAO implements ILoanDAO {
 
 	@Override
 	public ILoan getLoanByBook(IBook book) {
-		if (book == null ) {
-			throw new IllegalArgumentException(
-				String.format("LoanMapDAO : getLoanByBook : book cannot be null."));
+		if (book == null) {
+			throw new IllegalArgumentException(String.format("LoanMapDAO : getLoanByBook : book cannot be null."));
 		}
 		for (ILoan loan : loanMap.values()) {
 			IBook tempBook = loan.getBook();
@@ -74,9 +69,9 @@ public class LoanMapDAO implements ILoanDAO {
 
 	@Override
 	public List<ILoan> findLoansByBorrower(IMember borrower) {
-		if (borrower == null ) {
+		if (borrower == null) {
 			throw new IllegalArgumentException(
-				String.format("LoanMapDAO : findLoansByBorrower : borrower cannot be null."));
+					String.format("LoanMapDAO : findLoansByBorrower : borrower cannot be null."));
 		}
 		List<ILoan> list = new ArrayList<ILoan>();
 		for (ILoan loan : loanMap.values()) {
@@ -91,7 +86,7 @@ public class LoanMapDAO implements ILoanDAO {
 	public List<ILoan> findLoansByBookTitle(String title) {
 		if (title == null || title.isEmpty()) {
 			throw new IllegalArgumentException(
-				String.format("LoanMapDAO : findLoansByBookTitle : title cannot be null or blank."));
+					String.format("LoanMapDAO : findLoansByBookTitle : title cannot be null or blank."));
 		}
 		List<ILoan> list = new ArrayList<ILoan>();
 		for (ILoan loan : loanMap.values()) {
@@ -125,12 +120,11 @@ public class LoanMapDAO implements ILoanDAO {
 		return ++nextID;
 	}
 
-
 	@Override
 	public ILoan createLoan(IMember borrower, IBook book) {
 		if (borrower == null || book == null) {
 			throw new IllegalArgumentException(
-				String.format("LoanMapDAO : createLoan : borrower and book cannot be null."));
+					String.format("LoanMapDAO : createLoan : borrower and book cannot be null."));
 		}
 		Date borrowDate = new Date();
 		cal.setTime(borrowDate);
@@ -140,12 +134,11 @@ public class LoanMapDAO implements ILoanDAO {
 		return loan;
 	}
 
-	
 	@Override
 	public void commitLoan(ILoan loan) {
 		int id = getNextId();
-		loan.commit(id);		
-		loanMap.put(id, loan);		
+		loan.commit(id);
+		loanMap.put(id, loan);
 	}
 
 }
