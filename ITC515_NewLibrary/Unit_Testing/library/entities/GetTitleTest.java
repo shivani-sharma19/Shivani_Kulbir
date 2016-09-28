@@ -9,6 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class GetTitleTest {
+	Book instance;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -20,6 +21,7 @@ public class GetTitleTest {
 
 	@Before
 	public void setUp() throws Exception {
+		instance = new Book("Author2", "ITC515", "565656", 45);
 	}
 
 	@After
@@ -27,8 +29,10 @@ public class GetTitleTest {
 	}
 
 	@Test
-	public final void test() {
-		fail("Not yet implemented"); // TODO
+	public final void testGetTitle() {
+		String expresult = "ITC515";
+		String result = instance.getTitle();
+		assertEquals(expresult, result);
 	}
 
 }
