@@ -21,27 +21,25 @@ public class BorrowUC_UI extends JPanel implements IBorrowUI {
 	@SuppressWarnings("unused")
 	private IBorrowUIListener listener;
 	private EBorrowState state;
-	private Map<EBorrowState,IBorrowUI> panels;
+	private Map<EBorrowState, IBorrowUI> panels;
 
-	
 	public BorrowUC_UI(IBorrowUIListener listener) {
 		this.listener = listener;
-		this.panels = new HashMap<EBorrowState,IBorrowUI>();		
+		this.panels = new HashMap<EBorrowState, IBorrowUI>();
 		this.setLayout(new CardLayout());
 
-		addPanel(new SwipeCardPanel(listener),   EBorrowState.INITIALIZED);
-		addPanel(new ScanningPanel(listener),    EBorrowState.SCANNING_BOOKS);
-		addPanel(new RestrictedPanel(listener),  EBorrowState.BORROWING_RESTRICTED);
+		addPanel(new SwipeCardPanel(listener), EBorrowState.INITIALIZED);
+		addPanel(new ScanningPanel(listener), EBorrowState.SCANNING_BOOKS);
+		addPanel(new RestrictedPanel(listener), EBorrowState.BORROWING_RESTRICTED);
 		addPanel(new ConfirmLoanPanel(listener), EBorrowState.CONFIRMING_LOANS);
-		//addPanel(new CancelledPanel(),           EBorrowState.CANCELLED);
-		//addPanel(new CompletedPanel(),           EBorrowState.COMPLETED);
+		// addPanel(new CancelledPanel(), EBorrowState.CANCELLED);
+		// addPanel(new CompletedPanel(), EBorrowState.COMPLETED);
 	}
-	
-	private void addPanel(ABorrowPanel panel, EBorrowState state) {
-        this.panels.put(state, panel);
-        this.add(panel, state.toString());
- 	}
 
+	private void addPanel(ABorrowPanel panel, EBorrowState state) {
+		this.panels.put(state, panel);
+		this.add(panel, state.toString());
+	}
 
 	@Override
 	public void setState(EBorrowState state) {
@@ -51,100 +49,89 @@ public class BorrowUC_UI extends JPanel implements IBorrowUI {
 		case INITIALIZED:
 			cl.show(this, state.toString());
 			break;
-			
+
 		case SCANNING_BOOKS:
 			cl.show(this, state.toString());
 			break;
-			
+
 		case BORROWING_RESTRICTED:
 			cl.show(this, state.toString());
 			break;
-			
+
 		case CONFIRMING_LOANS:
 			cl.show(this, state.toString());
 			break;
 
- 		case COMPLETED:
+		case COMPLETED:
 			break;
-			
+
 		case CANCELLED:
 			break;
-			
+
 		default:
 			throw new RuntimeException("Unknown state");
 		}
 		this.state = state;
 	}
 
-
 	@Override
 	public void displayMemberDetails(int memberID, String memberName, String memberPhone) {
 		IBorrowUI ui = panels.get(state);
-		ui.displayMemberDetails( memberID,  memberName, memberPhone);		
+		ui.displayMemberDetails(memberID, memberName, memberPhone);
 	}
-
 
 	@Override
 	public void displayOverDueMessage() {
 		IBorrowUI ui = panels.get(state);
-		ui.displayOverDueMessage();		
+		ui.displayOverDueMessage();
 	}
-
 
 	@Override
 	public void displayAtLoanLimitMessage() {
 		IBorrowUI ui = panels.get(state);
-		ui.displayAtLoanLimitMessage();		
+		ui.displayAtLoanLimitMessage();
 	}
-
 
 	@Override
 	public void displayOutstandingFineMessage(float amountOwing) {
 		IBorrowUI ui = panels.get(state);
-		ui.displayOutstandingFineMessage(amountOwing);		
+		ui.displayOutstandingFineMessage(amountOwing);
 	}
 
-	
 	@Override
 	public void displayOverFineLimitMessage(float amountOwing) {
 		IBorrowUI ui = panels.get(state);
-		ui.displayOverFineLimitMessage(amountOwing);				
+		ui.displayOverFineLimitMessage(amountOwing);
 	}
 
-	
 	@Override
 	public void displayExistingLoan(String loanDetails) {
 		IBorrowUI ui = panels.get(state);
-		ui.displayExistingLoan(loanDetails);		
+		ui.displayExistingLoan(loanDetails);
 	}
 
-	
 	@Override
 	public void displayScannedBookDetails(String bookDetails) {
 		IBorrowUI ui = panels.get(state);
-		ui.displayScannedBookDetails(bookDetails);		
+		ui.displayScannedBookDetails(bookDetails);
 	}
 
-	
 	@Override
 	public void displayPendingLoan(String loanDetails) {
 		IBorrowUI ui = panels.get(state);
-		ui.displayPendingLoan(loanDetails);		
+		ui.displayPendingLoan(loanDetails);
 	}
 
-	
 	@Override
 	public void displayConfirmingLoan(String loanDetails) {
 		IBorrowUI ui = panels.get(state);
-		ui.displayConfirmingLoan(loanDetails);		
+		ui.displayConfirmingLoan(loanDetails);
 	}
 
-	
 	@Override
 	public void displayErrorMessage(String errorMesg) {
 		IBorrowUI ui = panels.get(state);
-		ui.displayErrorMessage(errorMesg);		
+		ui.displayErrorMessage(errorMesg);
 	}
-
 
 }
