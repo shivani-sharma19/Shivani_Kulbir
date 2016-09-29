@@ -30,6 +30,8 @@ public class Book implements IBook {
 		return (author != null && !author.isEmpty() && title != null && !title.isEmpty() && callNumber != null
 				&& !callNumber.isEmpty() && bookID > 0);
 	}
+	
+	
 
 	@Override
 	public void borrow(ILoan loan) {
@@ -67,7 +69,7 @@ public class Book implements IBook {
 		if (!(state == EBookState.ON_LOAN)) {
 			throw new RuntimeException(String.format("Illegal operation in state : %s", state));
 		}
-		state = EBookState.LOST;
+		state = EBookState.LOST; 
 	}
 
 	@Override
