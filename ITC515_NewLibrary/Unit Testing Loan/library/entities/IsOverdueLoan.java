@@ -2,13 +2,22 @@ package library.entities;
 
 import static org.junit.Assert.*;
 
+import java.util.Date;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import library.interfaces.entities.IBook;
+import library.interfaces.entities.IMember;
+
 public class IsOverdueLoan {
+	Loan instance;
+	IBook book;
+	IMember member;
+	Date borrowDate, returnDate;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -20,6 +29,12 @@ public class IsOverdueLoan {
 
 	@Before
 	public void setUp() throws Exception {
+		book = new Book("Skk", "jhh", "hyyt", 45);
+		member = new Member("james", "Mack", "12132", "jjh", 45);
+		borrowDate = new Date(2016, 05, 10);
+		returnDate = new Date(2016, 05, 10);
+
+		instance = new Loan(book, member, borrowDate, returnDate);
 	}
 
 	@After
@@ -28,7 +43,9 @@ public class IsOverdueLoan {
 
 	@Test
 	public final void test() {
-		fail("Not yet implemented"); // TODO
+		Boolean expResult = false;
+		Boolean result = instance.isOverDue();
+		assertEquals(expResult, result);
 	}
 
 }
