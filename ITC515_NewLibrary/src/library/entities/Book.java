@@ -15,7 +15,7 @@ public class Book implements IBook {
 
 	//Book class constructor
 	public Book(String author, String title, String callNumber, int bookID) {
-		if (!sane(author, title, callNumber, bookID)) {
+		if (!sane(author,  title, callNumber, bookID)) {
 			throw new IllegalArgumentException("Member: constructor : bad parameters");
 		}
 		this.author = author;
