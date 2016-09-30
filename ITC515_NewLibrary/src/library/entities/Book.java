@@ -13,8 +13,9 @@ public class Book implements IBook {
 	private ILoan loan;
 	private EBookState state;
 
+	//Book class constructor
 	public Book(String author, String title, String callNumber, int bookID) {
-		if (!sane(author, title, callNumber, bookID)) {
+		if (!sane(author,  title, callNumber, bookID)) {
 			throw new IllegalArgumentException("Member: constructor : bad parameters");
 		}
 		this.author = author;
@@ -29,6 +30,8 @@ public class Book implements IBook {
 		return (author != null && !author.isEmpty() && title != null && !title.isEmpty() && callNumber != null
 				&& !callNumber.isEmpty() && bookID > 0);
 	}
+	
+	
 
 	@Override
 	public void borrow(ILoan loan) {
@@ -66,7 +69,7 @@ public class Book implements IBook {
 		if (!(state == EBookState.ON_LOAN)) {
 			throw new RuntimeException(String.format("Illegal operation in state : %s", state));
 		}
-		state = EBookState.LOST;
+		state = EBookState.LOST; 
 	}
 
 	@Override
@@ -86,26 +89,31 @@ public class Book implements IBook {
 	}
 
 	@Override
+	//return state of book available,pending,damaged
 	public EBookState getState() {
 		return state;
 	}
 
 	@Override
+	//return the author of the book
 	public String getAuthor() {
 		return author;
 	}
 
 	@Override
+	//return title of the book
 	public String getTitle() {
 		return title;
 	}
 
 	@Override
+	//returns the callnumber 
 	public String getCallNumber() {
 		return callNumber;
 	}
 
 	@Override
+	//returns ID of the book
 	public int getID() {
 		return id;
 	}
