@@ -1,6 +1,3 @@
-/**
- * 
- */
 package library.entities;
 
 import static org.junit.Assert.*;
@@ -11,10 +8,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/**
- * @author sarvanjit
- *
- */
+import library.entities.Book;
+import library.interfaces.entities.EBookState;
+import library.interfaces.entities.ILoan;
+
 public class GetIDTest {
     Book instance;
 	/**
