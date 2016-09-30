@@ -65,8 +65,7 @@ public class Loan implements ILoan {
 	@Override
 	public boolean checkOverDue(Date currentDate) {
 		if (!(state == ELoanState.CURRENT || state == ELoanState.OVERDUE)) {
-			throw new RuntimeException(String.format("Loan : checkOverDue : incorrect state transition  : %s -> %s\n",
-					state, ELoanState.OVERDUE));
+			throw new RuntimeException(String.format("Loan : checkOverDue : incorrect state transition  : %s -> %s\n",state, ELoanState.OVERDUE));
 		}
 		if (currentDate.compareTo(dueDate) > 0) {
 			state = ELoanState.OVERDUE;
@@ -95,7 +94,7 @@ public class Loan implements ILoan {
 
 	@Override
 	public String toString() {
-		return (String.format("Loan ID:  %d\nAuthor:   %s\nTitle:    %s\nBorrower: %s %s\nBorrowed: %s\nDue Date: %s",
+		return (String.format("Loan ID:  %d\nA uthor:   %s\nTitle:    %s\nBorrower: %s %s\nBorrowed: %s\nDue Date: %s",
 				id, book.getAuthor(), book.getTitle(), borrower.getFirstName(), borrower.getLastName(),
 				DateFormat.getDateInstance().format(borrowDate), DateFormat.getDateInstance().format(dueDate)));
 	}
