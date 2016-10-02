@@ -5,5 +5,5 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({})
 public class AllTestsProject {
-
+//Integration Testing
 }
