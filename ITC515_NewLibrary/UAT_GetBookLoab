@@ -1,0 +1,19 @@
+<1> - <GetBookLoan>:
+Description: 
+
+The GetBookLaon test is about the Loan java class which is getting book data from the book class. It monitors that the book which is loaned in Loan class is also exist in book class of the project.
+
+Pre-conditions:
+
+1. Loan class should already exist and linked to book class.
+2. Book class should have the book data.
+
+Post-conditions: 
+
+1.The condition should be true if Loan class exits in the Book class.
+
+Data required:
+
+1. Book class data.
+2. Loan class data.
+.
