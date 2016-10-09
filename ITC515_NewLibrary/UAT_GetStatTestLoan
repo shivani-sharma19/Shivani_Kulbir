@@ -1,0 +1,20 @@
+<2> - <GetStateTestLoan>:
+Description:
+
+The test case GetStateTestLoan checks with comparison condition the state of the loan that PENDING, CURRENT, OVERDUE, COMPLETE according to the state in the Loan class. The expected results will be pending because the current condition in the Laon class is oendin.
+
+Pre-conditions: [List conditions that must be true before this Test Case can start.]
+
+1. Loan class should exist.
+2. Loan states should exist.
+
+Post-conditions: 
+
+1. The condition should be true if the state from getstate() from Loan class matches with the expected results.
+
+Data required: [Identify the type of data required for this Test Case.]
+
+1. Loan class data
+2. Book class data
+
+[repeat as needed]
