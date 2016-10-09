@@ -1,0 +1,22 @@
+<7> - <GetLoanTest>:
+Description: 
+
+1. The GetLoanTest will give information about the current loan on the book. The expected value of the test will null as the loan in the book class is null.
+
+Pre-conditions: 
+
+1. Book class must exist
+2. GetLoan method must exist in book class
+3. Book class must have Loan variable of ILoan type
+
+Post-conditions: 
+
+1. GetLoan method of book class will return Loan as null as expected results which should match with the result from getLoan method.
+
+Data required: 
+
+1. Book class
+2. GetLoan method
+3. Loan variable
+
+[repeat as needed]
