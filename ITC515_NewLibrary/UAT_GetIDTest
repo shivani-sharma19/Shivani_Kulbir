@@ -1,0 +1,22 @@
+<6> - <GetIDTest>:
+Description: 
+
+1. The GetID method of book class will return the expected result as current ID.
+
+Pre-conditions:
+
+1. Book class must exist
+2. GetID method must exist in book class
+3. Book class must have ID variable
+
+Post-conditions: 
+
+1. GetID method of book class will return ID in which expected results should match with the result from getID method.
+ 
+Data required:
+
+1. Book class
+2. GetID method
+3. ID variable 
+
+[repeat as needed]
