@@ -1,0 +1,21 @@
+<3> - <IsOverdueLoan>:
+Description: 
+
+The test will check loan is overdue or not. It will return false as expected result because the IsOverdue method is boolean type and returning false in the Loa class.
+
+Pre-conditions: 
+
+1. Loan data required
+2. Book data required
+3. IMember data required
+
+Post-conditions: 
+
+1. The test should work successful if the expected results matches with the IsOverdue method of Loan class.
+
+Data required:
+
+1. Loan class data
+2. Book class data
+3. IMember class data required
+[repeat as needed]
