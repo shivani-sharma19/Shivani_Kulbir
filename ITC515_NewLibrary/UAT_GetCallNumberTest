@@ -1,0 +1,22 @@
+<5> - <GetCallNumberTest>:
+Description:
+
+The test will be successful when method getcallnumber() gets the callnumber from book class.
+
+Pre-conditions: 
+
+1. Book class must exist
+2. Book author must exist
+3. GetCallNumber method must exist in book class
+
+Post-conditions:
+
+1. GetCallNumber method should return value of call number from book class
+
+Data required:
+
+1. Book class
+2. getcallnumber() method in book class
+3. Call number variable
+
+[repeat as needed]
