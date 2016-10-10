@@ -1,4 +1,4 @@
-<6> - <GetIDTest>:
+<7> - <GetTitleTest>:
 Description: 
 
 1. The GetTitle method of book class will return the expected result as current Title of book.
