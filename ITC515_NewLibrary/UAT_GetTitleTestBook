@@ -1,0 +1,22 @@
+<6> - <GetIDTest>:
+Description: 
+
+1. The GetTitle method of book class will return the expected result as current Title of book.
+
+Pre-conditions:
+
+1. Book class must exist
+2. GetTitle method must exist in book class
+3. Book class must have Title variable
+
+Post-conditions: 
+
+1. GetTitle method of book class will return book Title in which expected results should match with the result from GetTitle method.
+ 
+Data required:
+
+1. Book class
+2. GetTitle method
+3. Title variable 
+
+[repeat as needed]
